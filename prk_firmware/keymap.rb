@@ -1,23 +1,6 @@
-kbd = Keyboard.new
+require 'cheapino'
 
-lc1, lc2, lc3 = 0, 1, 2 # Left board column pins
-rc1, rc2, rc3 = 29, 28, 27 # Right board column pins
-r1, r2, r3, r4 = 6, 5, 4, 3 # Row pins
-
-# Matrix is a duplex that acts as one board with ethernet cable doing transport instead of SPI/UART over TRRS cable
-# Don't change this pin assignment unless you really know what you're doing
-kbd.split = false
-kbd.init_matrix_pins(
-  [
-    #                          Main keys: columns alternate between col->row and row->column directions
-    # Left board: columns right->left, rows top->bottom                 Right board: columns left->right, rows bottom->top
-    [[lc3, r1], [r1, lc2],   [lc2, r1],  [r1, lc1],  [lc1, r1],         [rc1, r3],   [r3, rc1], [rc2, r3],  [r3, rc2],  [rc3, r3]],
-    [[lc3, r2], [r2, lc2],   [lc2, r2],  [r2, lc1],  [lc1, r2],         [rc1, r2],   [r2, rc1], [rc2, r2],  [r2, rc2],  [rc3, r2]],
-    [[lc3, r3], [r3, lc2],   [lc2, r3],  [r3, lc1],  [lc1, r3],         [rc1, r1],   [r1, rc1], [rc2, r1],  [r1, rc2],  [rc3, r1]],
-    #                              Thumb keys: rowX->col3 on both sides, opposite row directions
-                            [[r3, lc3],  [r2, lc3],  [r1, lc3],         [r3, rc3],   [r2, rc3], [r1, rc3]], 
-  ]
-)
+kbd = Cheapino.new
 
 # Layers and hold-keys implement Peter Jang's 36-key beginner-friendly keyboard layout
 # https://keymapdb.com/keymaps/peterxjang/
