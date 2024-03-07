@@ -22,6 +22,8 @@ then you should get a new usb drive which you can just copy the uf2 file to.
 A qmk branch with support is located here: 
 https://github.com/tompi/qmk_firmware/tree/cheapino
 
+Another option is [PRK Firmware](./prk_firmware/README.md).
+
 If you are wondering if this is actually usable, Im writing this on it, and Im pretty happy with it. 
 My son is also using his at his work and claims its very usable.
 
